@@ -1,0 +1,22 @@
+# 🚀 FieldForce Pro - Employee Success Platform
+
+A complete field employee tracking system with safety features, automatic mileage tracking, and productivity tools.
+
+## Features
+- ✅ Employee location tracking
+- ✅ Automatic mileage reimbursement 
+- ✅ Safety & emergency features
+- ✅ AI route optimization
+- ✅ Weekly Excel exports
+- ✅ PWA mobile app
+
+## Deployment
+1. Deploy backend to Railway
+2. Deploy frontend to Netlify  
+3. Add MongoDB connection string
+
+## Tech Stack
+- Frontend: HTML, CSS, JavaScript (PWA)
+- Backend: Node.js, Express
+- Database: MongoDB Atlas
+- Hosting: Railway + Netlify (FREE)

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FieldForce Pro - Employee Success Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#007bff">
+</head>
+<body>
+    <div id="app">
+        <!-- Login Screen -->
+        <div id="loginScreen" class="screen active">
+            <div class="login-container">
+                <div class="app-logo">
+                    <h1>🚀 FieldForce Pro</h1>
+                    <p>Your All-in-One Field Success Platform</p>
+                </div>
+                <form id="loginForm">
+                    <input type="email" id="email" placeholder="Work Email" required>
+                    <input type="password" id="password" placeholder="Password" required>
+                    <button type="submit">Login to Your Account</button>
+                </form>
+                <p>New to FieldForce? <a href="#" id="showRegister">Create Account</a></p>
+                <div class="benefits-preview">
+                    <h4>🎯 What you get:</h4>
+                    <p>✅ Automatic mileage reimbursement</p>
+                    <p>✅ AI time-saving routes</p>
+                    <p>✅ Safety & emergency features</p>
+                    <p>✅ Easy timesheet tracking</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Register Screen -->
+        <div id="registerScreen" class="screen">
+            <div class="login-container">
+                <h2>Join FieldForce Pro</h2>
+                <form id="registerForm">
+                    <input type="text" id="regName" placeholder="Full Name" required>
+                    <input type="email" id="regEmail" placeholder="Work Email" required>
+                    <input type="password" id="regPassword" placeholder="Create Password" required>
+                    <button type="submit">Create Account</button>
+                </form>
+                <p>Already have account? <a href="#" id="showLogin">Login Here</a></p>
+            </div>
+        </div>
+
+        <!-- Main Dashboard -->
+        <div id="dashboard" class="screen">
+            <header>
+                <div class="header-brand">
+                    <h1>🚀 FieldForce Pro</h1>
+                    <span id="userWelcome">Welcome!</span>
+                </div>
+                <div class="header-actions">
+                    <button id="logoutBtn">Logout</button>
+                </div>
+            </header>
+
+            <!-- Benefits Dashboard -->
+            <div class="benefits-banner">
+                <div class="benefit-item">
+                    <span>💰</span>
+                    <div>
+                        <strong>Mileage Reimbursement</strong>
+                        <p id="mileageDisplay">Loading...</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <span>⏰</span>
+                    <div>
+                        <strong>Time Saved</strong>
+                        <p id="timeSavedDisplay">Loading...</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <span>🆘</span>
+                    <div>
+                        <strong>Safety Status</strong>
+                        <p id="safetyStatus">🟢 Active</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="dashboard-tab">📊 Dashboard</button>
+                <button class="tab-btn" data-tab="tasks">📋 My Tasks</button>
+                <button class="tab-btn" data-tab="ai-priority">🤖 Smart Routes</button>
+                <button class="tab-btn" data-tab="benefits">🎁 My Benefits</button>
+                <button class="tab-btn" data-tab="safety">🆘 Safety</button>
+                <button class="tab-btn" data-tab="reports">📈 Reports</button>
+            </div>
+
+            <!-- Dashboard Tab -->
+            <div id="dashboard-tab" class="tab-content active">
+                <h3>Your Field Success Dashboard</h3>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <h4>💰 This Month's Earnings</h4>
+                        <div class="metric-value" id="earningsMetric">$0.00</div>
+                        <p>Mileage + Overtime</p>
+                    </div>
+                    <div class="metric-card">
+                        <h4>⏰ Time Saved</h4>
+                        <div class="metric-value" id="timeSavedMetric">0 hours</div>
+                        <p>Thanks to AI routing</p>
+                    </div>
+                    <div class="metric-card">
+                        <h4>✅ Tasks Completed</h4>
+                        <div class="metric-value" id="tasksCompletedMetric">0</div>
+                        <p>This week</p>
+                    </div>
+                    <div class="metric-card">
+                        <h4>📊 Performance</h4>
+                        <div class="metric-value" id="performanceMetric">0%</div>
+                        <p>Efficiency score</p>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <h4>Quick Actions</h4>
+                    <div class="action-buttons">
+                        <button onclick="tracker.startLocationTracking()" class="action-btn">
+                            📍 Start Location Tracking
+                        </button>
+                        <button onclick="tracker.switchTab('benefits')" class="action-btn">
+                            💰 View Mileage Report
+                        </button>
+                        <button onclick="tracker.switchTab('safety')" class="action-btn safety">
+                            🆘 Safety Tools
+                        </button>
+                        <button onclick="tracker.switchTab('tasks')" class="action-btn">
+                            📋 Update Tasks
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tasks Tab -->
+            <div id="tasks" class="tab-content">
+                <h3>📋 My Tasks & Assignments</h3>
+                <div class="task-controls">
+                    <select id="taskFilter">
+                        <option value="all">All Tasks</option>
+                        <option value="pending">Pending</option>
+                        <option value="in_progress">In Progress</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                    <button onclick="tracker.switchTab('ai-priority')" class="smart-route-btn">
+                        🤖 Get Smart Route
+                    </button>
+                </div>
+                <div id="tasksList"></div>
+            </div>
+
+            <!-- AI Priority Tab -->
+            <div id="ai-priority" class="tab-content">
+                <h3>🤖 Smart Route Optimization</h3>
+                <p class="subtitle">AI-powered routing to save you time and fuel</p>
+                <div id="priorityList"></div>
+                <div class="route-stats">
+                    <div class="stat-card">
+                        <span>⏱️</span>
+                        <div>
+                            <strong id="timeSavedStat">0 min</strong>
+                            <p>Estimated time saved</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <span>💰</span>
+                        <div>
+                            <strong id="fuelSavedStat">$0</strong>
+                            <p>Fuel savings</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Benefits Tab -->
+            <div id="benefits" class="tab-content">
+                <h3>🎁 Your Benefits & Earnings</h3>
+                
+                <div class="benefits-section">
+                    <h4>💰 Automatic Mileage Tracking</h4>
+                    <div class="date-picker-row">
+                        <input type="date" id="mileageStartDate">
+                        <span>to</span>
+                        <input type="date" id="mileageEndDate">
+                        <button onclick="tracker.calculateMileage()">Calculate Reimbursement</button>
+                    </div>
+                    <div id="mileageResults" class="results-card"></div>
+                </div>
+
+                <div class="benefits-section">
+                    <h4>⏰ Automated Timesheet</h4>
+                    <div class="date-picker-row">
+                        <input type="date" id="timesheetStartDate">
+                        <span>to</span>
+                        <input type="date" id="timesheetEndDate">
+                        <button onclick="tracker.calculateTimesheet()">Calculate Pay</button>
+                    </div>
+                    <div id="timesheetResults" class="results-card"></div>
+                </div>
+
+                <div class="benefits-section">
+                    <h4>📈 Your Performance</h4>
+                    <div id="performanceResults" class="results-card">
+                        <p>Complete tasks to see your performance metrics</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Safety Tab -->
+            <div id="safety" class="tab-content">
+                <h3>🆘 Safety & Emergency Tools</h3>
+                
+                <div class="safety-alert">
+                    <p>📍 Your location is shared for safety. Emergency contacts can find you quickly.</p>
+                </div>
+
+                <div class="emergency-buttons">
+                    <button class="emergency-btn medical" onclick="tracker.triggerEmergency('medical')">
+                        🏥 Medical Emergency
+                    </button>
+                    <button class="emergency-btn accident" onclick="tracker.triggerEmergency('accident')">
+                        🚗 Accident Report
+                    </button>
+                    <button class="emergency-btn safety" onclick="tracker.triggerEmergency('safety_concern')">
+                        ⚠️ Safety Concern
+                    </button>
+                </div>
+
+                <div class="safety-contacts">
+                    <h4>Emergency Contacts</h4>
+                    <div id="emergencyContactsList"></div>
+                </div>
+
+                <div class="safety-features">
+                    <h4>Safety Features</h4>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <span>📍</span>
+                            <strong>Auto Location</strong>
+                            <p>Share location every hour for safety</p>
+                        </div>
+                        <div class="feature-card">
+                            <span>📞</span>
+                            <strong>Quick Call</strong>
+                            <p>One-tap emergency calls</p>
+                        </div>
+                        <div class="feature-card">
+                            <span>👥</span>
+                            <strong>Team Awareness</strong>
+                            <p>Managers know your location</p>
+                        </div>
+                        <div class="feature-card">
+                            <span>🆘</span>
+                            <strong>Instant Alert</strong>
+                            <p>Notify multiple contacts</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reports Tab -->
+            <div id="reports" class="tab-content">
+                <h3>📈 Weekly Reports & Export</h3>
+                <div class="report-controls">
+                    <div class="date-picker">
+                        <label>Week Start:</label>
+                        <input type="date" id="weekStart">
+                    </div>
+                    <div class="date-picker">
+                        <label>Week End:</label>
+                        <input type="date" id="weekEnd">
+                    </div>
+                    <button id="generateReport" class="report-btn">📊 Generate Weekly Report</button>
+                    <button id="exportData" class="export-btn">📥 Export Excel Files</button>
+                </div>
+                
+                <div id="reportResults" class="report-results"></div>
+                <div id="exportResults" class="export-results"></div>
+                
+                <div class="cleanup-section">
+                    <h4>🧹 Data Management</h4>
+                    <p class="warning">⚠️ After exporting, you can cleanup old data to keep system fast</p>
+                    <button id="cleanupData" class="cleanup-btn">🗑️ Cleanup Old Data</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Task Modal -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>🔄 Update Task Progress</h3>
+            <form id="progressForm">
+                <input type="hidden" id="currentTaskId">
+                <select id="progressAction" required>
+                    <option value="">Select Status</option>
+                    <option value="started">▶️ Started</option>
+                    <option value="in_progress">🔄 In Progress</option>
+                    <option value="completed">✅ Completed</option>
+                </select>
+                <textarea id="progressNotes" placeholder="Progress notes..."></textarea>
+                <input type="number" id="actualHours" placeholder="Actual hours taken" min="0" step="0.5">
+                <button type="submit">Update Progress</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Emergency Modal -->
+    <div id="emergencyModal" class="modal">
+        <div class="modal-content emergency-modal">
+            <span class="close">&times;</span>
+            <h3>🆘 Emergency Alert</h3>
+            <div id="emergencyForm">
+                <p><strong>Type:</strong> <span id="emergencyTypeDisplay"></span></p>
+                <textarea id="emergencyMessage" placeholder="Describe the emergency..."></textarea>
+                <p class="location-info">📍 Your current location will be sent with this alert</p>
+                <button onclick="tracker.sendEmergencyAlert()" class="emergency-send-btn">
+                    🚨 SEND EMERGENCY ALERT
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

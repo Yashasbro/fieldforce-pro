@@ -1,0 +1,33 @@
+{
+  "name": "FieldForce Pro",
+  "short_name": "FieldForce",
+  "description": "Employee Success Platform - Safety, Productivity & Earnings",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#007bff",
+  "orientation": "portrait",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["business", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiByeD0iMjQiIGZpbGw9IiMwMDdiZmYiLz4KPHBhdGggZD0iTTk2IDQ4QzcwLjIgNDggNTAgNjguMiA1MCA5M0M1MCAxMTcuOCA3MC4yIDEzOCA5NiAxMzhDMTIwLjggMTM4IDE0MSAxMTcuOCAxNDEgOTNDMTQxIDY4LjIgMTIwLjggNDggOTYgNDhaTTE0MSAxNDRINDFDMTkuMiAxNDQgMiAxNjEuMiAyIDE4M0MyIDE4Ni44IDUuMiAxOTAgOSAxOTBIMTgzQzE4Ni44IDE5MCAxOTAgMTg2LjggMTkwIDE4M0MxOTAgMTYxLjIgMTcyLjggMTQ0IDE1MSAxNDRaIiBmaWxsPSJ3aGl0ZSIvPgo8Y2lyY2xlIGN4PSI5NiIgY3k9Ijk2IiByPSIyMCIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iNjQiIGZpbGw9IiMwMDdiZmYiLz4KPHBhdGggZD0iTTI1NiAxMjhDMjIxLjIgMTI4IDE5MiAxNTcuMiAxOTIgMTkyQzE5MiAyMjYuOCAyMjEuMiAyNTYgMjU2IDI1NkMyOTAuOCAyNTYgMzIwIDIyNi44IDMyMCAxOTJDMzIwIDE1Ny4yIDI5MC44IDEyOCAyNTYgMTI4Wk0zODQgMzUySDEyOEM4OC4yIDM1MiA1NiAzODQuMiA1NiA0MjRDNjYgNDY5LjIgMTA2LjggNTA0IDE1MiA1MDRIMzYwQzQwNS4yIDUwNCA0NDYgNDY5LjIgNDU2IDQyNEM0NTYgMzg0LjIgNDIzLjggMzUyIDM4NCAzNTJaIiBmaWxsPSJ3aGl0ZSIvPgo8Y2lyY2xlIGN4PSIyNTYiIGN5PSIxOTIiIHI9IjQ4IiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI2MDAiIHZpZXdCb3g9IjAgMCAxMjAwIDYwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iNjAwIiBmaWxsPSIjMDA3YmZmIi8+Cjx0ZXh0IHg9IjYwMCIgeT0iMzAwIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjQ4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7wn4yIIEZpZWxkRm9yY2UgUHJvPC90ZXh0Pgo8dGV4dCB4PSI2MDAiIHk9IjM2MCIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RW1wbG95ZWUgU3VjY2VzcyBQbGF0Zm9ybTwvdGV4dD4KPC9zdmc+Cg==",
+      "sizes": "1200x600",
+      "type": "image/svg+xml",
+      "form_factor": "wide"
+    }
+  ]
+}
