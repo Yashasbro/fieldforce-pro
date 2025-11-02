@@ -600,8 +600,8 @@ async function generateCsv(data, type) {
 }
 
 // Serve frontend
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public', 'index.html'));
+app.get('/ping', (req, res) => {
+  res.send('Backend OK ✅');
 });
 
 const PORT = process.env.PORT || 3000;
@@ -609,3 +609,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 FieldForce Pro running on port ${PORT}`);
 });
+
