@@ -10,6 +10,14 @@ const app = express();
 
 // Middleware
 app.use(helmet());
+app.use(cors({
+  origin: [
+    'https://fieldforce-pro.vercel.app',
+    process.env.FRONTEND_URL
+  ],
+  credentials: true
+}));
+
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public')));
@@ -600,4 +608,5 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🚀 FieldForce Pro running on port ${PORT}`);
   console.log(`📊 Benefits: Mileage Tracking | Safety Features | Time Savings`);
+
 });
